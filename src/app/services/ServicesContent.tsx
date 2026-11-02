@@ -91,7 +91,8 @@ export default function ServicesContent() {
             transition={{ delay: 0.1 }}
             className="text-slate-500 max-w-2xl mx-auto"
           >
-            خدمات تخصصی عایق‌کاری و نصب ایزوگام برای انواع سازه‌های ساختمانی با تضمین کیفیت و رضایت مشتری
+            خدمات تخصصی عایق‌کاری و نصب ایزوگام برای انواع سازه‌های ساختمانی با
+            تضمین کیفیت و رضایت مشتری
           </motion.p>
         </div>
 
@@ -115,9 +116,22 @@ export default function ServicesContent() {
               </p>
               <ul className="space-y-2 mb-6">
                 {service.features.map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-slate-600">
-                    <svg className="w-4 h-4 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <li
+                    key={f}
+                    className="flex items-center gap-2 text-sm text-slate-600"
+                  >
+                    <svg
+                      className="w-4 h-4 text-green-500 shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     {f}
                   </li>
@@ -146,10 +160,11 @@ export default function ServicesContent() {
             نیاز به مشاوره رایگان دارید؟
           </h2>
           <p className="text-white/70 mb-8 max-w-xl mx-auto">
-            کارشناسان ما آماده پاسخگویی به سوالات شما و ارائه بهترین راهکار هستند
+            کارشناسان ما آماده پاسخگویی به سوالات شما و ارائه بهترین راهکار
+            هستند
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+989XXXXXXXXX">
+            <a href="tel:+989117492212">
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 className="inline-block px-8 py-3 bg-white text-primary font-bold rounded-xl cursor-pointer"

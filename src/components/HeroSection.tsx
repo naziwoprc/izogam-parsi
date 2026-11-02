@@ -67,7 +67,7 @@ export default function HeroSection() {
                   ثبت سفارش
                 </motion.span>
               </Link>
-              <a href="tel:+989XXXXXXXXX">
+              <a href="tel:+989117492212">
                 <motion.span
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -91,7 +91,9 @@ export default function HeroSection() {
                 { num: "+۱۰۰۰", label: "مشتری راضی" },
               ].map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="text-2xl sm:text-3xl font-black text-white">{s.num}</div>
+                  <div className="text-2xl sm:text-3xl font-black text-white">
+                    {s.num}
+                  </div>
                   <div className="text-white/60 text-sm mt-1">{s.label}</div>
                 </div>
               ))}
@@ -112,7 +114,11 @@ export default function HeroSection() {
 
       {/* Wave bottom */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M0 120L60 108C120 96 240 72 360 60C480 48 600 48 720 54C840 60 960 72 1080 78C1200 84 1320 84 1380 84L1440 84V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="#F4F7FA"

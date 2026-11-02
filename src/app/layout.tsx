@@ -13,8 +13,7 @@ export const metadata: Metadata = {
     "ایزوگام, نصب ایزوگام, ایزوگام نوشهر, عایق رطوبتی, ایزوگام پارسی, خرید ایزوگام",
   openGraph: {
     title: "ایزوگام پارسی | فروش و نصب تخصصی ایزوگام",
-    description:
-      "فروش و نصب انواع ایزوگام با ضمانت کیفیت در نوشهر و شمال کشور",
+    description: "فروش و نصب انواع ایزوگام با ضمانت کیفیت در نوشهر و شمال کشور",
     locale: "fa_IR",
     type: "website",
   },
@@ -36,8 +35,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "ایزوگام پارسی",
-              description:
-                "فروش و نصب تخصصی ایزوگام در نوشهر و شمال کشور",
+              description: "فروش و نصب تخصصی ایزوگام در نوشهر و شمال کشور",
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "کمربندی نوشهر، چسبیده به پمپ بنزین",
@@ -45,8 +43,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 addressRegion: "مازندران",
                 addressCountry: "IR",
               },
-              telephone: "+989XXXXXXXXX",
-              email: "info@izogam-parsi.ir",
+              telephone: "+989117492212",
+              email: "nazaninparsi213@gmail.com",
             }),
           }}
         />

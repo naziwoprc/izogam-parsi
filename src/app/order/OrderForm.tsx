@@ -24,21 +24,35 @@ export default function OrderForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [trackingId, setTrackingId] = useState<number | null>(null);
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
+    setError("");
     try {
       const res = await fetch("/api/orders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
+      const data = await res.json();
       if (res.ok) {
         setSubmitted(true);
-        setForm({ name: "", phone: "", area: "", projectType: "", description: "" });
+        setTrackingId(data.id);
+        setForm({
+          name: "",
+          phone: "",
+          area: "",
+          projectType: "",
+          description: "",
+        });
+      } else {
+        setError(data.error || "خطا در ثبت سفارش. لطفاً دوباره تلاش کنید.");
       }
     } catch {
-      // handle error silently
+      setError("خطا در ارتباط با سرور. لطفاً اتصال اینترنت خود را بررسی کنید.");
     } finally {
       setLoading(false);
     }
@@ -62,7 +76,8 @@ export default function OrderForm() {
             transition={{ delay: 0.1 }}
             className="text-slate-500"
           >
-            فرم زیر را تکمیل کنید. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.
+            فرم زیر را تکمیل کنید. کارشناسان ما در اسرع وقت با شما تماس خواهند
+            گرفت.
           </motion.p>
         </div>
 
@@ -79,8 +94,18 @@ export default function OrderForm() {
               className="text-center py-12"
             >
               <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
-                <svg className="w-12 h-12 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-12 h-12 text-green-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
               </div>
               <h2 className="font-bold text-2xl text-slate-800 mb-3">
@@ -90,7 +115,12 @@ export default function OrderForm() {
                 کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.
               </p>
               <p className="text-slate-400 text-sm mb-8">
-                شماره پیگیری: #{Math.floor(Math.random() * 90000 + 10000)}
+                {trackingId !== null && `شماره پیگیری: #${trackingId}`}
+                {error && (
+                  <div className="bg-red-50 border border-red-200 text-red-600 text-sm font-medium rounded-xl px-4 py-3 text-center">
+                    {error}
+                  </div>
+                )}
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -123,7 +153,9 @@ export default function OrderForm() {
                     type="tel"
                     required
                     value={form.phone}
-                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, phone: e.target.value })
+                    }
                     className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all"
                     placeholder="۰۹XX-XXX-XXXX"
                     dir="ltr"
@@ -152,7 +184,9 @@ export default function OrderForm() {
                   <select
                     required
                     value={form.projectType}
-                    onChange={(e) => setForm({ ...form, projectType: e.target.value })}
+                    onChange={(e) =>
+                      setForm({ ...form, projectType: e.target.value })
+                    }
                     className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all bg-white"
                   >
                     <option value="">انتخاب کنید</option>
@@ -172,7 +206,9 @@ export default function OrderForm() {
                 <textarea
                   rows={5}
                   value={form.description}
-                  onChange={(e) => setForm({ ...form, description: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, description: e.target.value })
+                  }
                   className="w-full px-4 py-3.5 rounded-xl border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition-all resize-none"
                   placeholder="توضیحات بیشتر درباره پروژه خود را بنویسید..."
                 />
@@ -189,7 +225,8 @@ export default function OrderForm() {
               </motion.button>
 
               <p className="text-center text-slate-400 text-sm">
-                پس از ثبت سفارش، کارشناسان ما ظرف ۲۴ ساعت با شما تماس خواهند گرفت
+                پس از ثبت سفارش، کارشناسان ما ظرف ۲۴ ساعت با شما تماس خواهند
+                گرفت
               </p>
             </form>
           )}
@@ -207,9 +244,14 @@ export default function OrderForm() {
             { icon: "⚡", text: "پاسخگویی سریع" },
             { icon: "💯", text: "مشاوره و بازدید رایگان" },
           ].map((item) => (
-            <div key={item.text} className="bg-white rounded-2xl p-4 text-center border border-slate-100">
+            <div
+              key={item.text}
+              className="bg-white rounded-2xl p-4 text-center border border-slate-100"
+            >
               <span className="text-2xl">{item.icon}</span>
-              <p className="text-slate-600 text-sm mt-2 font-medium">{item.text}</p>
+              <p className="text-slate-600 text-sm mt-2 font-medium">
+                {item.text}
+              </p>
             </div>
           ))}
         </motion.div>

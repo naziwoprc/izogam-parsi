@@ -94,7 +94,12 @@ export default function FAQContent() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </motion.svg>
               </button>
               <AnimatePresence>
@@ -135,7 +140,7 @@ export default function FAQContent() {
                 تماس با ما
               </motion.span>
             </Link>
-            <a href="tel:+989XXXXXXXXX">
+            <a href="tel:+989117492212">
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 className="inline-block px-6 py-3 border-2 border-white text-white font-bold rounded-xl cursor-pointer"

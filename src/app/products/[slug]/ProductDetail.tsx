@@ -10,9 +10,13 @@ export default function ProductDetail({ product }: { product: Product }) {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav className="mb-8 text-sm text-slate-500">
-          <Link href="/" className="hover:text-primary">صفحه اصلی</Link>
+          <Link href="/" className="hover:text-primary">
+            صفحه اصلی
+          </Link>
           <span className="mx-2">/</span>
-          <Link href="/products" className="hover:text-primary">محصولات</Link>
+          <Link href="/products" className="hover:text-primary">
+            محصولات
+          </Link>
           <span className="mx-2">/</span>
           <span className="text-primary">{product.name}</span>
         </nav>
@@ -25,8 +29,19 @@ export default function ProductDetail({ product }: { product: Product }) {
             className="bg-gradient-to-br from-primary/5 to-primary-light/5 rounded-3xl h-80 lg:h-full flex items-center justify-center relative overflow-hidden"
           >
             <div className="w-48 h-48 rounded-full bg-gradient-to-br from-primary to-primary-light opacity-20 absolute blur-3xl" />
-            <svg className="w-40 h-40 text-primary/30" viewBox="0 0 100 100" fill="currentColor">
-              <rect x="10" y="15" width="80" height="70" rx="10" opacity="0.3" />
+            <svg
+              className="w-40 h-40 text-primary/30"
+              viewBox="0 0 100 100"
+              fill="currentColor"
+            >
+              <rect
+                x="10"
+                y="15"
+                width="80"
+                height="70"
+                rx="10"
+                opacity="0.3"
+              />
               <circle cx="50" cy="50" r="25" opacity="0.5" />
               <circle cx="50" cy="50" r="10" opacity="0.8" />
             </svg>
@@ -60,12 +75,27 @@ export default function ProductDetail({ product }: { product: Product }) {
 
             {/* Features */}
             <div className="mb-8">
-              <h3 className="font-bold text-lg text-slate-800 mb-4">ویژگی‌ها</h3>
+              <h3 className="font-bold text-lg text-slate-800 mb-4">
+                ویژگی‌ها
+              </h3>
               <ul className="space-y-3">
                 {product.features.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-slate-600">
-                    <svg className="w-5 h-5 text-green-500 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <li
+                    key={f}
+                    className="flex items-center gap-3 text-slate-600"
+                  >
+                    <svg
+                      className="w-5 h-5 text-green-500 shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     {f}
                   </li>
@@ -75,10 +105,15 @@ export default function ProductDetail({ product }: { product: Product }) {
 
             {/* Usage */}
             <div className="mb-8">
-              <h3 className="font-bold text-lg text-slate-800 mb-4">کاربردها</h3>
+              <h3 className="font-bold text-lg text-slate-800 mb-4">
+                کاربردها
+              </h3>
               <div className="flex flex-wrap gap-2">
                 {product.usage.map((u) => (
-                  <span key={u} className="px-4 py-2 bg-primary/5 rounded-xl text-sm text-primary">
+                  <span
+                    key={u}
+                    className="px-4 py-2 bg-primary/5 rounded-xl text-sm text-primary"
+                  >
                     {u}
                   </span>
                 ))}
@@ -96,7 +131,7 @@ export default function ProductDetail({ product }: { product: Product }) {
                   ثبت سفارش
                 </motion.span>
               </Link>
-              <a href="tel:+989XXXXXXXXX" className="flex-1">
+              <a href="tel:+989117492212" className="flex-1">
                 <motion.span
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

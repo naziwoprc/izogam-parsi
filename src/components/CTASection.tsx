@@ -28,8 +28,8 @@ export default function CTASection() {
           transition={{ delay: 0.1 }}
           className="text-white/70 text-lg mb-10 max-w-2xl mx-auto leading-8"
         >
-          همین الان سفارش خود را ثبت کنید یا برای مشاوره رایگان با ما تماس بگیرید.
-          تیم ما آماده خدمت‌رسانی به شماست.
+          همین الان سفارش خود را ثبت کنید یا برای مشاوره رایگان با ما تماس
+          بگیرید. تیم ما آماده خدمت‌رسانی به شماست.
         </motion.p>
 
         <motion.div
@@ -48,7 +48,7 @@ export default function CTASection() {
               ثبت سفارش آنلاین
             </motion.span>
           </Link>
-          <a href="tel:+989XXXXXXXXX">
+          <a href="tel:+989117492212">
             <motion.span
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
